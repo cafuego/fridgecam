@@ -1,0 +1,42 @@
+<?php
+/**
+ * Implements hook_init()
+ *
+ * Add some CSS and Javascript.
+ */
+function fridgecam_init() {
+  $path = drupal_get_path('module', 'fridgecam');
+
+  drupal_add_css($path . '/fridgecam.css');
+  drupal_add_js($path . '/fridgecam.js');
+}
+
+/**
+ * Implements hook_menu().
+ */
+function fridgecam_menu() {
+  $items['fridgecam'] = array(
+    'title' => t('Fridge Cam'),
+    'description' => t('Monitor the inside of your fridge live on the internet.'),
+    'page callback' => 'fridgecam_spoof',
+    'access arguments' => array('access content'),
+  );
+  return $items;
+}
+
+/**
+ * Return the fridgecam content.
+ */
+function fridgecam_spoof() {
+  drupal_set_title(t('Fridge Cam'));
+
+  $output  = '<div id="fridgecam">';
+  $output .= '<div id="fridgecam-stream">';
+  $output .= '<img src="'. drupal_get_path('module', 'fridgecam') .'/mpeg/stream.jpg?'. time() . ' alt="FridgeCam Stream" width="320" height="240" />';
+  $output .= '</div>';
+  $output .= '<div id="fridgecam-time">-</div>';
+  $output .= '<div id="fridgecam-temperature">-</div>';
+  $output .= '</div>';
+
+  return $output;
+}

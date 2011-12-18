@@ -1,0 +1,22 @@
+/* Image stream container. */
+#fridgecam {
+  width: 320px;
+  height: 240px;
+  position: relative;
+}
+
+#fridgecam-time {
+  font: 10pt Courier, Courier New, monospace;
+  color: #fff;
+  position: absolute;
+  right: 0em;
+  bottom: 1em;
+}
+
+#fridgecam-temperature {
+  font: 10pt Courier, Courier New, monospace;
+  color: #fff;
+  position: absolute;
+  right: 0em;
+  bottom: -0.2em;
+}

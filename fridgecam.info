@@ -1,0 +1,3 @@
+name = Fridgecam
+description = Monitor the inside of your fridge live on the internet.
+core = 6.x
